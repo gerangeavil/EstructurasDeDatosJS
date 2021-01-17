@@ -1,8 +1,8 @@
-const array = ['Diego', 'Gerson', 'Arlet'];
-console.log(array);
+// const array = ['Diego', 'Gerson', 'Arlet'];
+// console.log(array);
 
-array.push('Ana');
-console.log(array);
+// array.push('Ana');
+// console.log(array);
 
 class MyArray {
   constructor() {
@@ -40,9 +40,31 @@ class MyArray {
     delete this.data[this.length - 1];
     this.length--;
   }
+
+  unshift() {
+    this.delete(0);
+    this.length--;
+  }
+
+  shift(item) {
+    for (let i = this.length; i > 0; i--) {
+      this.data[i] = this.data[i - 1];
+    }
+    this.data[0] = item;
+    this.length++;
+  }
 }
 
 const myArray = new MyArray();
+
+myArray.push('Yesid0');
+myArray.push('Yesid1');
+myArray.push('Yesid2');
+myArray.push('Yesid3');
 console.log(myArray);
-myArray.push('Yesid');
+
+myArray.shift('Gerson');
+console.log(myArray);
+
+myArray.unshift();
 console.log(myArray);

@@ -1,3 +1,4 @@
+/*
 let singlyLinkedList = {
   head: {
     value: 1,
@@ -13,6 +14,7 @@ let singlyLinkedList = {
     },
   },
 };
+*/
 
 class Node {
   constructor(value) {
@@ -30,6 +32,26 @@ class MySinglyLinkedList {
     this.tail = this.head;
     this.length = 1;
   }
+
+  append(value) {
+    const newNode = new Node(value);
+    this.tail.next = newNode;
+    this.tail = newNode;
+    this.length++;
+    return this;
+  }
+
+  prepend(value) {
+    const newNode = new Node(value);
+    newNode.next = this.head;
+    this.head = newNode;
+    this.length++;
+    return this;
+  }
 }
 
 let myLinkedList = new MySinglyLinkedList(1);
+console.log(myLinkedList.append(2));
+console.log(myLinkedList.append(3));
+console.log(myLinkedList.append(4));
+console.log(myLinkedList.prepend(0));
